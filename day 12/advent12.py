@@ -96,7 +96,7 @@ def bfs(start, part):
     while len(Queue) > 0:
         row, col, depth = Queue.pop(0)
 
-        #if the current position holds 1, then we want to make it our stop for part 2
+        #if the current position holds 1, then make it a stop position for part 2
         if part == 2:
             temp = num_data[row][col]
             if temp == 1:
