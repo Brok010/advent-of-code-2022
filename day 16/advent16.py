@@ -15,7 +15,7 @@ def logic(minutes, destinations):
     #logic
     pressure_released = 0
     while minutes > 0:
-        c, p = alg(minutes, destinations, start)
+        c, p, start = alg(minutes, destinations, start)
         minutes -= c + 1 #1 min for opening a valve
         pressure_released += p #minutes left
     
@@ -100,9 +100,10 @@ def alg(minutes, destinations, start):   #dijkstras alg
     for dic in destinations:
         if dic['name'] == name:
             dic['flow-rate'] = 0
+            start = dic
 
     #returning the time cost and presure released    
-    return temp_path['cost'], temp_path['prio']
+    return temp_path['cost'], temp_path['prio'], start
 
 minutes = 30
 print(logic(minutes, Valves))
